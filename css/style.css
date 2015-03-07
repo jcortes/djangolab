@@ -1,0 +1,122 @@
+body {
+    margin: 2em 18em;
+    background-color: #1FD798;
+    font-family: 'Patrick Hand';
+}
+
+h1 {
+    font-size: 60px;
+    margin: 0;
+}
+
+h2 {
+    text-align: left;
+}
+
+u {
+    color: crimson;
+    font-family: 'Patrick Hand', cursive;
+}
+
+.masthead {
+    background-color: white;
+    border-radius: 10px;
+    
+    padding: 10px;
+    margin-bottom: 1em;
+    
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+	-moz-box-shadow: 0 10px 6px -6px #777;
+	box-shadow: 0 10px 6px -6px #777;
+}
+
+.img-face {
+    height: 80px;
+}
+
+.img-logo {
+    height: 40px;
+}
+
+.avatar-lib {
+    margin: 1.2em 3em;
+    display: inline-block;
+    border-color: black;
+    border: 1px;
+}
+
+.title-lib {
+    margin: 1.2em 3em;
+    display: inline-block;
+    text-align: center;
+    width: 25em;
+}
+
+.form-lib {
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    
+    margin-bottom: 1em;
+    padding: 20px;
+    
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+	-moz-box-shadow: 0 10px 6px -6px #777;
+	box-shadow: 0 10px 6px -6px #777;
+}
+
+.text-lib {
+    background-color: white;
+    border-radius: 10px;
+    
+    margin-bottom: 1em;
+    padding: 20px;
+    
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+	-moz-box-shadow: 0 10px 6px -6px #777;
+	box-shadow: 0 10px 6px -6px #777;
+    
+    font-size: 25px;
+}
+
+.ph-button {
+    margin-top: 10px;
+    border-style: solid;
+    border-width: 0px 0px 1px;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    color: #FFFFFF;	   
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-block;
+    font-style: normal;
+    overflow: hidden;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    transition: all 200ms ease-in-out 0s;
+    white-space: nowrap;
+    font-weight: 700;	
+    padding: 10px 39px 10px;
+    font-size: 18px;
+    text-align: right;
+    
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+	-moz-box-shadow: 0 10px 6px -6px #777;
+	box-shadow: 0 10px 6px -6px #777;
+}
+
+/*Red
+==========================*/
+.ph-btn-red {
+    background-color: #ED5A5A !important;
+    border-color: #EA4343 !important;
+
+}
+.ph-btn-red:hover, .ph-btn-red:focus, .ph-btn-red:active {
+    background: none repeat scroll 0 0 #EB4848 !important;
+    border-color: #E83131 !important;    
+}
+
+.ph-btn-red:disabled {
+    background: none repeat scroll 0 0 #C6CCD2 !important;
+    border-color: #AAB3BB !important;
+}
