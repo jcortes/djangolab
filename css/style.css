@@ -32,6 +32,11 @@ u {
 
 .img-face {
     height: 80px;
+    border-style: solid;
+    border-width: 0.3em;
+    padding: 0.6em 0.6em;
+    border-radius: 10px;
+    border-color: black;
 }
 
 .img-logo {
@@ -41,8 +46,6 @@ u {
 .avatar-lib {
     margin: 1.2em 3em;
     display: inline-block;
-    border-color: black;
-    border: 1px;
 }
 
 .title-lib {
