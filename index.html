@@ -25,20 +25,36 @@
             <h2>Provide the following words:</h2>
 
             <form name="formLib">
-                <input type="text" placeholder="Female Name" ng-model="word.female_name" ng-disabled="showText" required/>
-                <input type="text" placeholder="Dirty Task" ng-model="word.dirty_task" ng-disabled="showText" required/>
-                <input type="text" placeholder="Obnoxious Celebrity" ng-model="word.obnoxiuous_celebrity" ng-disabled="showText" required/>
+                <div class="row">
+                    <label>Gender: </label>
+                    <input type="radio" id="femGen" value="female" ng-model="gender" ng-click="changeGenTxt()"/>
+                    <label for="femGen">Female</label>
+                    <input type="radio" id="maleGen" value="male" ng-model="gender" ng-click="changeGenTxt()"/>
+                    <label for="maleGen">Male</label>
+                </div>
+                
+                <div class="row">
+                    <input type="text" placeholder="{{genName}} Name" ng-model="word.name" ng-disabled="showText" required/>
+                    <input type="text" placeholder="Dirty Task" ng-model="word.dirty_task" ng-disabled="showText" required/>
+                    <input type="text" placeholder="Obnoxious Celebrity" ng-model="word.obnoxiuous_celebrity" ng-disabled="showText" required/>
+                </div>
+                
+                <div class="row">
+                    <input type="text" placeholder="Job Title" ng-model="word.job_title" ng-disabled="showText" required/>
+                    <input type="text" placeholder="Celebrity" ng-model="word.celebrity" ng-disabled="showText" required/>
+                    <input type="text" placeholder="Huge Number" ng-model="word.huge_number" ng-disabled="showText" required/>
+                </div>
 
-                <input type="text" placeholder="Job Title" ng-model="word.job_title" ng-disabled="showText" required/>
-                <input type="text" placeholder="Celebrity" ng-model="word.celebrity" ng-disabled="showText" required/>
-                <input type="text" placeholder="Huge Number" ng-model="word.huge_number" ng-disabled="showText" required/>
+                <div class="row">
+                    <input type="text" placeholder="Tedious Task" ng-model="word.tedious_task" ng-disabled="showText" required/>
+                    <input type="text" placeholder="Useless Skill" ng-model="word.useless_skill" ng-disabled="showText" required/>
+                    <input type="text" placeholder="Adjective" ng-model="word.adjective" ng-disabled="showText" required/>
+                </div>
 
-                <input type="text" placeholder="Tedious Task" ng-model="word.tedious_task" ng-disabled="showText" required/>
-                <input type="text" placeholder="Useless Skill" ng-model="word.useless_skill" ng-disabled="showText" required/>
-                <input type="text" placeholder="Adjective" ng-model="word.adjective" ng-disabled="showText" required/>
-
-                <input type="button" value="Submit" ng-click="showText=true" ng-disabled="!formLib.$valid"
-                   class="ph-button ph-btn-red"/>
+                <div class="row">
+                    <input type="button" value="Submit" ng-click="showText=true" ng-disabled="!formLib.$valid"
+                       class="ph-button ph-btn-red"/>
+                </div>
 
             </form>
 
@@ -46,38 +62,36 @@
 
         <section class="text-lib">
             <p>
-                <span ng-show="formLib.$valid && showText"><u>{{word.female_name}}</u></span>
-                <span ng-hide="formLib.$valid && showText"><u>Female Name</u></span>
+                <span ng-show="formLib.$valid && showText"><u>{{word.name}}</u></span>
+                <span ng-hide="formLib.$valid && showText"><u>{{genName}} Name</u></span>
                 was a 
                 <span ng-show="formLib.$valid && showText"><u>{{word.job_title}}</u></span>
                 <span ng-hide="formLib.$valid && showText"><u>Job Title</u></span> 
                 who loved technology. 
-                Although she loved parts of her job, she absolutely hated  
+                Although {{sheOrHe}} loved parts of {{herOrHis}} job, {{sheOrHe}} absolutely hated  
                 <span ng-show="formLib.$valid && showText"><u>{{word.tedious_task}}</u></span>
                 <span ng-hide="formLib.$valid && showText"><u>Tedious Task</u></span>
                 and 
                 <span ng-show="formLib.$valid && showText"><u>{{word.dirty_task}}</u></span>
                 <span ng-hide="formLib.$valid && showText"><u>Dirty Task</u></span>
                 . So, 
-                <span ng-show="formLib.$valid && showText"><u>{{word.female_name}}</u></span>
-                <span ng-hide="formLib.$valid && showText"><u>Female Name</u></span>
-                met with her life mentor 
+                <span ng-show="formLib.$valid && showText"><u>{{word.name}}</u></span>
+                <span ng-hide="formLib.$valid && showText"><u>{{genName}} Name</u></span>
+                met with {{herOrHis}} life mentor 
                 <span ng-show="formLib.$valid && showText"><u>{{word.celebrity}}</u></span>
                 <span ng-hide="formLib.$valid && showText"><u>Celebrity</u></span> 
-                who told her to 
-                learn how to 
+                who told {{herOrHim}} to learn how to 
                 <span ng-show="formLib.$valid && showText"><u>{{word.useless_skill}}</u></span>
                 <span ng-hide="formLib.$valid && showText"><u>Useless Skill</u></span> 
-                with Thinkful. Thinkful 
-                didn't offer a course on 
+                with Thinkful. Thinkful didn't offer a course on 
                 <span ng-show="formLib.$valid && showText"><u>{{word.useless_skill}}</u></span>
                 <span ng-hide="formLib.$valid && showText"><u>Useless Skill</u></span> 
-                so she studied programming instead.
+                so {{sheOrHe}} studied programming instead.
             </p>
             <p>
-                What a great decision! With her new skills, 
-                <span ng-show="formLib.$valid && showText"><u>{{word.female_name}}</u></span>
-                <span ng-hide="formLib.$valid && showText"><u>Female Name</u></span>
+                What a great decision! With {{herOrHis}} new skills, 
+                <span ng-show="formLib.$valid && showText"><u>{{word.name}}</u></span>
+                <span ng-hide="formLib.$valid && showText"><u>{{genName}} Name</u></span>
                 built a(n) 
                 <span ng-show="formLib.$valid && showText"><u>{{word.adjective}}</u></span>
                 <span ng-hide="formLib.$valid && showText"><u>Adjective</u></span> 

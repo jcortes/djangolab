@@ -55,6 +55,10 @@ u {
     width: 25em;
 }
 
+.row {
+    display: block;
+}
+
 .form-lib {
     text-align: center;
     background-color: white;
