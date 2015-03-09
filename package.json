@@ -1,0 +1,8 @@
+{
+	"name": "ngMadLibs",
+	"version": "0.0.1",
+	"description": "ngMadLibs",
+	"dependencies": {
+		"http-server": "latest"
+	}
+}

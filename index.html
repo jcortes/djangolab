@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="">
+<html lang="en" ng-app="myApp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,81 +20,83 @@
         </section>
     </header>
     
-    <section class="form-lib" ng-init="showText=false" >
-        <h2>Provide the following words:</h2>
-        
-        <form name="formLib">
-            <input type="text" placeholder="Female Name" ng-model="word.female_name" ng-disabled="showText" required/>
-            <input type="text" placeholder="Dirty Task" ng-model="word.dirty_task" ng-disabled="showText" required/>
-            <input type="text" placeholder="Obnoxious Celebrity" ng-model="word.obnoxiuous_celebrity" ng-disabled="showText" required/>
+    <div ng-controller="myCtrl">
+        <section class="form-lib">
+            <h2>Provide the following words:</h2>
 
-            <input type="text" placeholder="Job Title" ng-model="word.job_title" ng-disabled="showText" required/>
-            <input type="text" placeholder="Celebrity" ng-model="word.celebrity" ng-disabled="showText" required/>
-            <input type="text" placeholder="Huge Number" ng-model="word.huge_number" ng-disabled="showText" required/>
+            <form name="formLib">
+                <input type="text" placeholder="Female Name" ng-model="word.female_name" ng-disabled="showText" required/>
+                <input type="text" placeholder="Dirty Task" ng-model="word.dirty_task" ng-disabled="showText" required/>
+                <input type="text" placeholder="Obnoxious Celebrity" ng-model="word.obnoxiuous_celebrity" ng-disabled="showText" required/>
 
-            <input type="text" placeholder="Tedious Task" ng-model="word.tedious_task" ng-disabled="showText" required/>
-            <input type="text" placeholder="Useless Skill" ng-model="word.useless_skill" ng-disabled="showText" required/>
-            <input type="text" placeholder="Adjective" ng-model="word.adjective" ng-disabled="showText" required/>
-            
-            <input type="button" value="Submit" ng-click="showText=true" ng-disabled="!formLib.$valid"
-               class="ph-button ph-btn-red"/>
-            
-        </form>
-        
-    </section>
+                <input type="text" placeholder="Job Title" ng-model="word.job_title" ng-disabled="showText" required/>
+                <input type="text" placeholder="Celebrity" ng-model="word.celebrity" ng-disabled="showText" required/>
+                <input type="text" placeholder="Huge Number" ng-model="word.huge_number" ng-disabled="showText" required/>
 
-    <section class="text-lib">
-        <p>
-            <span ng-show="formLib.$valid && showText"><u>{{word.female_name}}</u></span>
-            <span ng-hide="formLib.$valid && showText"><u>Female Name</u></span>
-            was a 
-            <span ng-show="formLib.$valid && showText"><u>{{word.job_title}}</u></span>
-            <span ng-hide="formLib.$valid && showText"><u>Job Title</u></span> 
-            who loved technology. 
-            Although she loved parts of her job, she absolutely hated  
-            <span ng-show="formLib.$valid && showText"><u>{{word.tedious_task}}</u></span>
-            <span ng-hide="formLib.$valid && showText"><u>Tedious Task</u></span>
-            and 
-            <span ng-show="formLib.$valid && showText"><u>{{word.dirty_task}}</u></span>
-            <span ng-hide="formLib.$valid && showText"><u>Dirty Task</u></span>
-            . So, 
-            <span ng-show="formLib.$valid && showText"><u>{{word.female_name}}</u></span>
-            <span ng-hide="formLib.$valid && showText"><u>Female Name</u></span>
-            met with her life mentor 
-            <span ng-show="formLib.$valid && showText"><u>{{word.celebrity}}</u></span>
-            <span ng-hide="formLib.$valid && showText"><u>Celebrity</u></span> 
-            who told her to 
-            learn how to 
-            <span ng-show="formLib.$valid && showText"><u>{{word.useless_skill}}</u></span>
-            <span ng-hide="formLib.$valid && showText"><u>Useless Skill</u></span> 
-            with Thinkful. Thinkful 
-            didn't offer a course on 
-            <span ng-show="formLib.$valid && showText"><u>{{word.useless_skill}}</u></span>
-            <span ng-hide="formLib.$valid && showText"><u>Useless Skill</u></span> 
-            so she studied programming instead.
-        </p>
-        <p>
-            What a great decision! With her new skills, 
-            <span ng-show="formLib.$valid && showText"><u>{{word.female_name}}</u></span>
-            <span ng-hide="formLib.$valid && showText"><u>Female Name</u></span>
-            built a(n) 
-            <span ng-show="formLib.$valid && showText"><u>{{word.adjective}}</u></span>
-            <span ng-hide="formLib.$valid && showText"><u>Adjective</u></span> 
-            robot named 
-            <span ng-show="formLib.$valid && showText"><u>{{word.obnoxiuous_celebrity}}</u></span>
-            <span ng-hide="formLib.$valid && showText"><u>Obnoxiuous Celebrity</u></span>
-            that not only loved 
-            <span ng-show="formLib.$valid && showText"><u>{{word.dirty_task}}</u></span>
-            <span ng-hide="formLib.$valid && showText"><u>Dirty Task</u></span> 
-            but did it 
-            <span ng-show="formLib.$valid && showText"><u>{{word.huge_number}}</u></span>
-            <span ng-hide="formLib.$valid && showText"><u>Huge Number</u></span>
-            faster.
-        </p>
-            
-        <input type="button" value="Clear" ng-click="showText=false; word={}" 
-               class="ph-button ph-btn-red" ng-show="formLib.$valid && showText"/>
-    </section>
+                <input type="text" placeholder="Tedious Task" ng-model="word.tedious_task" ng-disabled="showText" required/>
+                <input type="text" placeholder="Useless Skill" ng-model="word.useless_skill" ng-disabled="showText" required/>
+                <input type="text" placeholder="Adjective" ng-model="word.adjective" ng-disabled="showText" required/>
+
+                <input type="button" value="Submit" ng-click="showText=true" ng-disabled="!formLib.$valid"
+                   class="ph-button ph-btn-red"/>
+
+            </form>
+
+        </section>
+
+        <section class="text-lib">
+            <p>
+                <span ng-show="formLib.$valid && showText"><u>{{word.female_name}}</u></span>
+                <span ng-hide="formLib.$valid && showText"><u>Female Name</u></span>
+                was a 
+                <span ng-show="formLib.$valid && showText"><u>{{word.job_title}}</u></span>
+                <span ng-hide="formLib.$valid && showText"><u>Job Title</u></span> 
+                who loved technology. 
+                Although she loved parts of her job, she absolutely hated  
+                <span ng-show="formLib.$valid && showText"><u>{{word.tedious_task}}</u></span>
+                <span ng-hide="formLib.$valid && showText"><u>Tedious Task</u></span>
+                and 
+                <span ng-show="formLib.$valid && showText"><u>{{word.dirty_task}}</u></span>
+                <span ng-hide="formLib.$valid && showText"><u>Dirty Task</u></span>
+                . So, 
+                <span ng-show="formLib.$valid && showText"><u>{{word.female_name}}</u></span>
+                <span ng-hide="formLib.$valid && showText"><u>Female Name</u></span>
+                met with her life mentor 
+                <span ng-show="formLib.$valid && showText"><u>{{word.celebrity}}</u></span>
+                <span ng-hide="formLib.$valid && showText"><u>Celebrity</u></span> 
+                who told her to 
+                learn how to 
+                <span ng-show="formLib.$valid && showText"><u>{{word.useless_skill}}</u></span>
+                <span ng-hide="formLib.$valid && showText"><u>Useless Skill</u></span> 
+                with Thinkful. Thinkful 
+                didn't offer a course on 
+                <span ng-show="formLib.$valid && showText"><u>{{word.useless_skill}}</u></span>
+                <span ng-hide="formLib.$valid && showText"><u>Useless Skill</u></span> 
+                so she studied programming instead.
+            </p>
+            <p>
+                What a great decision! With her new skills, 
+                <span ng-show="formLib.$valid && showText"><u>{{word.female_name}}</u></span>
+                <span ng-hide="formLib.$valid && showText"><u>Female Name</u></span>
+                built a(n) 
+                <span ng-show="formLib.$valid && showText"><u>{{word.adjective}}</u></span>
+                <span ng-hide="formLib.$valid && showText"><u>Adjective</u></span> 
+                robot named 
+                <span ng-show="formLib.$valid && showText"><u>{{word.obnoxiuous_celebrity}}</u></span>
+                <span ng-hide="formLib.$valid && showText"><u>Obnoxiuous Celebrity</u></span>
+                that not only loved 
+                <span ng-show="formLib.$valid && showText"><u>{{word.dirty_task}}</u></span>
+                <span ng-hide="formLib.$valid && showText"><u>Dirty Task</u></span> 
+                but did it 
+                <span ng-show="formLib.$valid && showText"><u>{{word.huge_number}}</u></span>
+                <span ng-hide="formLib.$valid && showText"><u>Huge Number</u></span>
+                faster.
+            </p>
+
+            <input type="button" value="Clear" ng-click="showText=false; word={}" 
+                   class="ph-button ph-btn-red" ng-show="formLib.$valid && showText"/>
+        </section>
+    </div>
     
     <script data-require="angular.js@1.3.10" data-semver="1.3.10" src="https://code.angularjs.org/1.3.10/angular.js"></script>
     <script src="js/script.js"></script>
