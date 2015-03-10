@@ -1,7 +1,7 @@
 {
-	"name": "ngMadLibs",
+	"name": "ngMultTable",
 	"version": "0.0.1",
-	"description": "ngMadLibs",
+	"description": "ngMultTable",
 	"dependencies": {
 		"http-server": "latest"
 	}
