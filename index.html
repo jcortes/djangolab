@@ -4,115 +4,168 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='http://fonts.googleapis.com/css?family=Patrick+Hand' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Angular MadLibs</title>
 </head>
 
 <body>
     <header class="masthead">
-        <section class="avatar-lib">
-            <img class="img-face" src="img/mad-lib-happy-face.png"/>
-        </section>
+        <div class="container-fluid">
+            <div class="row">
+                <section class="col-xs-4 text-center" style="padding-top: 1em;">
+                    <img class="img-face" src="img/mad-lib-happy-face.png"/>
+                </section>
 
-        <section class="title-lib">
-            <img class="img-logo" src="img/ng-mad-libs-logo.png"/>
-            <h1>Automate This!</h1>
-        </section>
+                <section class="col-xs-8 text-center">
+                    <img class="img-logo" src="img/ng-mad-libs-logo.png"/>
+                    <h1>Automate This!</h1>
+                </section>
+            </div>
+        </div>
     </header>
     
     <div ng-controller="myCtrl">
-        <section class="form-lib">
-            <h2>Provide the following words:</h2>
+        <section class="form-lib" ng-hide="formLib.$valid && showText">
+            <div class="container-fluid">
+                <h2>Provide the following words:</h2>
 
-            <form name="formLib">
-                <div class="row">
-                    <label>Gender: </label>
-                    <input type="radio" id="femGen" value="female" ng-model="gender" ng-click="changeGenTxt()"/>
-                    <label for="femGen">Female</label>
-                    <input type="radio" id="maleGen" value="male" ng-model="gender" ng-click="changeGenTxt()"/>
-                    <label for="maleGen">Male</label>
-                </div>
-                
-                <div class="row">
-                    <input type="text" placeholder="{{genName}} Name" ng-model="word.name" ng-disabled="showText" required/>
-                    <input type="text" placeholder="Dirty Task" ng-model="word.dirty_task" ng-disabled="showText" required/>
-                    <input type="text" placeholder="Obnoxious Celebrity" ng-model="word.obnoxiuous_celebrity" ng-disabled="showText" required/>
-                </div>
-                
-                <div class="row">
-                    <input type="text" placeholder="Job Title" ng-model="word.job_title" ng-disabled="showText" required/>
-                    <input type="text" placeholder="Celebrity" ng-model="word.celebrity" ng-disabled="showText" required/>
-                    <input type="text" placeholder="Huge Number" ng-model="word.huge_number" ng-disabled="showText" required/>
-                </div>
+                <form name="formLib" novalidate ng-submit="submit()">
+                    <div class="row row-padding-left">
+                        <div class="col-md-4 text-left">
+                            <label>Gender: </label>
+                            <input type="radio" id="femGen" value="female" ng-model="gender" ng-click="changeGenTxt()"/>
+                            <label for="femGen">Female</label>
+                            <input type="radio" id="maleGen" value="male" ng-model="gender" ng-click="changeGenTxt()"/>
+                            <label for="maleGen">Male</label>
+                        </div>
+                    </div>
 
-                <div class="row">
-                    <input type="text" placeholder="Tedious Task" ng-model="word.tedious_task" ng-disabled="showText" required/>
-                    <input type="text" placeholder="Useless Skill" ng-model="word.useless_skill" ng-disabled="showText" required/>
-                    <input type="text" placeholder="Adjective" ng-model="word.adjective" ng-disabled="showText" required/>
-                </div>
+                    <div class="row row-padding-left">
+                        <div class="col-md-3">
+                            <input type="text" name="name" placeholder="{{genName}} Name" ng-model="word.name" required/>
+                            <div ng-if="formLib.$submitted" ng-messages="formLib.name.$error">
+                                <span ng-message="required">Name field is required</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="dirty_task" placeholder="Dirty Task" ng-model="word.dirty_task" required/>
+                            <div ng-if="formLib.$submitted" ng-messages="formLib.dirty_task.$error">
+                                <span ng-message="required">Dirty task field is required</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="obnoxiuous_celebrity" placeholder="Obnoxious Celebrity" 
+                                   ng-model="word.obnoxiuous_celebrity" required/>
+                            <div ng-if="formLib.$submitted" ng-messages="formLib.obnoxiuous_celebrity.$error">
+                                <span ng-message="required">Obnoxiuous celebrity field is required</span>
+                            </div>
+                        </div>
+                    </div>
 
-                <div class="row">
-                    <input type="button" value="Submit" ng-click="showText=true" ng-disabled="!formLib.$valid"
-                       class="ph-button ph-btn-red"/>
-                </div>
+                    <div class="row row-padding-left">
+                        <div class="col-md-3">
+                            <input type="text" name="job_title" placeholder="Job Title" ng-model="word.job_title" required/>
+                            <div ng-if="formLib.$submitted" ng-messages="formLib.job_title.$error">
+                                <span ng-message="required">Job Title field is required</span>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3">
+                            <input type="text" name="celebrity" placeholder="Celebrity" ng-model="word.celebrity" required/>
+                            <div ng-if="formLib.$submitted" ng-messages="formLib.celebrity.$error">
+                                <span ng-message="required">Celebrity field is required</span>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3">
+                            <input type="number" name="huge_number" placeholder="Huge Number" ng-model="word.huge_number" required/>
+                            <div ng-if="formLib.$submitted" ng-messages="formLib.huge_number.$error">
+                                <span ng-message="required">Huge Number field is required</span>
+                                <span ng-message="number">Huge Number must to be a number</span>
+                            </div>
+                        </div>
+                    </div>
 
-            </form>
+                    <div class="row row-padding-left">
+                        <div class="col-md-3">
+                            <input type="text" name="tedious_task" placeholder="Tedious Task" ng-model="word.tedious_task" required/>
+                            <div ng-if="formLib.$submitted" ng-messages="formLib.tedious_task.$error">
+                                <span ng-message="required">Tedious Task field is required</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="useless_skill" placeholder="Useless Skill" ng-model="word.useless_skill" required/>
+                            <div ng-if="formLib.$submitted" ng-messages="formLib.useless_skill.$error">
+                                <span ng-message="required">Useless Skill field is required</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="adjective" placeholder="Adjective" ng-model="word.adjective" required/>
+                            <div ng-if="formLib.$submitted" ng-messages="formLib.adjective.$error">
+                                <span ng-message="required">Adjective field is required</span>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="row">
+                        <div class="col-md-3 col-md-offset-6">
+                            <input type="submit" value="Generate My Mad Lib"
+                               class="ph-button ph-btn-red"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </section>
 
-        <section class="text-lib">
+        <section class="text-lib container-fluid" ng-show="formLib.$valid && showText">
             <p>
-                <span ng-show="formLib.$valid && showText"><u>{{word.name}}</u></span>
-                <span ng-hide="formLib.$valid && showText"><u>{{genName}} Name</u></span>
+                <span><u>{{word.name}}</u></span>
                 was a 
-                <span ng-show="formLib.$valid && showText"><u>{{word.job_title}}</u></span>
-                <span ng-hide="formLib.$valid && showText"><u>Job Title</u></span> 
+                <span><u>{{word.job_title}}</u></span> 
                 who loved technology. 
                 Although {{sheOrHe}} loved parts of {{herOrHis}} job, {{sheOrHe}} absolutely hated  
-                <span ng-show="formLib.$valid && showText"><u>{{word.tedious_task}}</u></span>
-                <span ng-hide="formLib.$valid && showText"><u>Tedious Task</u></span>
+                <span><u>{{word.tedious_task}}</u></span>
                 and 
-                <span ng-show="formLib.$valid && showText"><u>{{word.dirty_task}}</u></span>
-                <span ng-hide="formLib.$valid && showText"><u>Dirty Task</u></span>
+                <span><u>{{word.dirty_task}}</u></span>
                 . So, 
-                <span ng-show="formLib.$valid && showText"><u>{{word.name}}</u></span>
-                <span ng-hide="formLib.$valid && showText"><u>{{genName}} Name</u></span>
+                <span><u>{{word.name}}</u></span>
                 met with {{herOrHis}} life mentor 
-                <span ng-show="formLib.$valid && showText"><u>{{word.celebrity}}</u></span>
-                <span ng-hide="formLib.$valid && showText"><u>Celebrity</u></span> 
+                <span><u>{{word.celebrity}}</u></span> 
                 who told {{herOrHim}} to learn how to 
-                <span ng-show="formLib.$valid && showText"><u>{{word.useless_skill}}</u></span>
-                <span ng-hide="formLib.$valid && showText"><u>Useless Skill</u></span> 
+                <span><u>{{word.useless_skill}}</u></span> 
                 with Thinkful. Thinkful didn't offer a course on 
-                <span ng-show="formLib.$valid && showText"><u>{{word.useless_skill}}</u></span>
-                <span ng-hide="formLib.$valid && showText"><u>Useless Skill</u></span> 
+                <span><u>{{word.useless_skill}}</u></span> 
                 so {{sheOrHe}} studied programming instead.
             </p>
             <p>
                 What a great decision! With {{herOrHis}} new skills, 
-                <span ng-show="formLib.$valid && showText"><u>{{word.name}}</u></span>
-                <span ng-hide="formLib.$valid && showText"><u>{{genName}} Name</u></span>
+                <span><u>{{word.name}}</u></span>
                 built a(n) 
-                <span ng-show="formLib.$valid && showText"><u>{{word.adjective}}</u></span>
-                <span ng-hide="formLib.$valid && showText"><u>Adjective</u></span> 
+                <span><u>{{word.adjective}}</u></span> 
                 robot named 
-                <span ng-show="formLib.$valid && showText"><u>{{word.obnoxiuous_celebrity}}</u></span>
-                <span ng-hide="formLib.$valid && showText"><u>Obnoxiuous Celebrity</u></span>
+                <span><u>{{word.obnoxiuous_celebrity}}</u></span>
                 that not only loved 
-                <span ng-show="formLib.$valid && showText"><u>{{word.dirty_task}}</u></span>
-                <span ng-hide="formLib.$valid && showText"><u>Dirty Task</u></span> 
+                <span><u>{{word.dirty_task}}</u></span> 
                 but did it 
-                <span ng-show="formLib.$valid && showText"><u>{{word.huge_number}}</u></span>
-                <span ng-hide="formLib.$valid && showText"><u>Huge Number</u></span>
+                <span><u>{{word.huge_number}}</u></span>
                 faster.
             </p>
 
-            <input type="button" value="Clear" ng-click="showText=false; word={}" 
-                   class="ph-button ph-btn-red" ng-show="formLib.$valid && showText"/>
+            <div class="row">
+                <div class="col-md-3 col-md-offset-8">
+                    <input type="button" value="Start Over" 
+                           ng-click="startOver()" 
+                           class="ph-button ph-btn-red"/>
+                </div>
+            </div>
         </section>
     </div>
     
     <script data-require="angular.js@1.3.10" data-semver="1.3.10" src="https://code.angularjs.org/1.3.10/angular.js"></script>
+    <script src="https://code.angularjs.org/1.3.9/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

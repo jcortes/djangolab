@@ -1,9 +1,9 @@
-angular.module('myApp', [])
+angular.module('myApp', ['ngMessages'])
 
 .controller('myCtrl', function ($scope) {
     $scope.gender = 'female';
-    $scope.showText = false;
     $scope.word = {};
+    $scope.showText = false;
     
     $scope.sheOrHe = 'she';
     $scope.herOrHis = 'her';
@@ -22,5 +22,19 @@ angular.module('myApp', [])
           $scope.herOrHim = 'him';
           $scope.genName = 'Male';
       }
-    }
+    };
+    
+    $scope.submit = function () {
+        if($scope.formLib.$valid){
+            $scope.showText = true;
+        }
+    };
+    
+    // Default values
+    $scope.startOver = function(){
+        $scope.gender = 'female';
+        $scope.word={};
+        $scope.showText=false;
+        $scope.formLib.$submitted=false;
+    };
 });

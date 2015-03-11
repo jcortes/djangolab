@@ -11,6 +11,7 @@ h1 {
 
 h2 {
     text-align: left;
+    padding-left: 4em;
 }
 
 u {
@@ -55,8 +56,17 @@ u {
     width: 25em;
 }
 
-.row {
-    display: block;
+.error {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.row-padding-left {
+    padding-left: 10em;
+}
+
+.row-padding-right {
+    padding-right: 12em;
 }
 
 .form-lib {
@@ -77,7 +87,7 @@ u {
     border-radius: 10px;
     
     margin-bottom: 1em;
-    padding: 20px;
+    padding: 1em 5em;
     
     -webkit-box-shadow: 0 10px 6px -6px #777;
 	-moz-box-shadow: 0 10px 6px -6px #777;
@@ -105,14 +115,13 @@ u {
     padding: 10px 39px 10px;
     font-size: 18px;
     text-align: right;
+    width: initial;
     
     -webkit-box-shadow: 0 10px 6px -6px #777;
 	-moz-box-shadow: 0 10px 6px -6px #777;
 	box-shadow: 0 10px 6px -6px #777;
 }
 
-/*Red
-==========================*/
 .ph-btn-red {
     background-color: #ED5A5A !important;
     border-color: #EA4343 !important;
