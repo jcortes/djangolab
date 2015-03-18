@@ -96,6 +96,20 @@ u {
     font-size: 25px;
 }
 
+.form-lib.ng-hide-add.ng-hide-add-active,
+.text-lib.ng-hide-add.ng-hide-add-active {
+    animation-name: zoomOutRight;
+    animation-duration: 1s;
+    animation-direction: normal;
+}
+
+.form-lib.ng-hide-remove.ng-hide-remove-active,
+.text-lib.ng-hide-remove.ng-hide-remove-active {
+    animation-name: zoomInLeft;
+    animation-duration: 1s;
+    animation-direction: normal;
+}
+
 .ph-button {
     margin-top: 10px;
     border-style: solid;
