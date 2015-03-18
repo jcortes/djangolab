@@ -57,8 +57,7 @@ u {
 }
 
 .error {
-    padding-left: 60px;
-    padding-right: 60px;
+    color: coral;
 }
 
 .row-padding-left {
@@ -69,45 +68,47 @@ u {
     padding-right: 12em;
 }
 
-.form-lib {
-    text-align: center;
-    background-color: white;
-    border-radius: 10px;
-    
-    margin-bottom: 1em;
-    padding: 20px;
-    
-    -webkit-box-shadow: 0 10px 6px -6px #777;
-	-moz-box-shadow: 0 10px 6px -6px #777;
-	box-shadow: 0 10px 6px -6px #777;
+.custom-container {
+    position: relative;
 }
 
+.form-lib, 
 .text-lib {
     background-color: white;
     border-radius: 10px;
-    
     margin-bottom: 1em;
-    padding: 1em 5em;
-    
     -webkit-box-shadow: 0 10px 6px -6px #777;
 	-moz-box-shadow: 0 10px 6px -6px #777;
 	box-shadow: 0 10px 6px -6px #777;
-    
+    position: absolute;
+}
+
+.form-lib {
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+}
+
+.text-lib {
     font-size: 25px;
+    padding: 1em 5em;
 }
 
 .form-lib.ng-hide-add.ng-hide-add-active,
 .text-lib.ng-hide-add.ng-hide-add-active {
-    animation-name: zoomOutRight;
+    /*animation-name: zoomOutRight;*/
+    /*animation-name: bounceOutRight;*/
+    /*animation-name: rollOut;*/
+    animation-name: hinge;
     animation-duration: 1s;
-    animation-direction: normal;
 }
 
 .form-lib.ng-hide-remove.ng-hide-remove-active,
 .text-lib.ng-hide-remove.ng-hide-remove-active {
-    animation-name: zoomInLeft;
+    /*animation-name: zoomInLeft;*/
+    /*animation-name: bounceInLeft;*/
+    animation-name: rollIn;
     animation-duration: 1s;
-    animation-direction: normal;
 }
 
 .ph-button {

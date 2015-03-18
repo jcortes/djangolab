@@ -27,8 +27,8 @@
         </div>
     </header>
     
-    <div ng-controller="myCtrl">
-        <section class="form-lib animated" ng-hide="formLib.$valid && showText">
+    <div ng-controller="myCtrl" class="custom-container">
+        <section class="form-lib" ng-hide="formLib.$valid && showText">
             <div class="container-fluid">
                 <h2>Provide the following words:</h2>
 
@@ -47,20 +47,20 @@
                         <div class="col-md-3">
                             <input type="text" name="name" placeholder="{{genName}} Name" ng-model="word.name" required/>
                             <div ng-if="formLib.$submitted" ng-messages="formLib.name.$error">
-                                <span ng-message="required">Name field is required</span>
+                                <span class="error" ng-message="required">Name field is required</span>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <input type="text" name="dirty_task" placeholder="Dirty Task" ng-model="word.dirty_task" required/>
                             <div ng-if="formLib.$submitted" ng-messages="formLib.dirty_task.$error">
-                                <span ng-message="required">Dirty task field is required</span>
+                                <span class="error" ng-message="required">Dirty task field is required</span>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <input type="text" name="obnoxiuous_celebrity" placeholder="Obnoxious Celebrity" 
                                    ng-model="word.obnoxiuous_celebrity" required/>
                             <div ng-if="formLib.$submitted" ng-messages="formLib.obnoxiuous_celebrity.$error">
-                                <span ng-message="required">Obnoxiuous celebrity field is required</span>
+                                <span class="error" ng-message="required">Obnoxiuous celebrity field is required</span>
                             </div>
                         </div>
                     </div>
@@ -69,22 +69,22 @@
                         <div class="col-md-3">
                             <input type="text" name="job_title" placeholder="Job Title" ng-model="word.job_title" required/>
                             <div ng-if="formLib.$submitted" ng-messages="formLib.job_title.$error">
-                                <span ng-message="required">Job Title field is required</span>
+                                <span class="error" ng-message="required">Job Title field is required</span>
                             </div>
                         </div>
                         
                         <div class="col-md-3">
                             <input type="text" name="celebrity" placeholder="Celebrity" ng-model="word.celebrity" required/>
                             <div ng-if="formLib.$submitted" ng-messages="formLib.celebrity.$error">
-                                <span ng-message="required">Celebrity field is required</span>
+                                <span class="error" ng-message="required">Celebrity field is required</span>
                             </div>
                         </div>
                         
                         <div class="col-md-3">
                             <input type="number" name="huge_number" placeholder="Huge Number" ng-model="word.huge_number" required/>
                             <div ng-if="formLib.$submitted" ng-messages="formLib.huge_number.$error">
-                                <span ng-message="required">Huge Number field is required</span>
-                                <span ng-message="number">Huge Number must be a number</span>
+                                <span class="error" ng-message="required">Huge Number field is required</span>
+                                <span class="error" ng-message="number">Huge Number must be a number</span>
                             </div>
                         </div>
                     </div>
@@ -93,19 +93,19 @@
                         <div class="col-md-3">
                             <input type="text" name="tedious_task" placeholder="Tedious Task" ng-model="word.tedious_task" required/>
                             <div ng-if="formLib.$submitted" ng-messages="formLib.tedious_task.$error">
-                                <span ng-message="required">Tedious Task field is required</span>
+                                <span class="error" ng-message="required">Tedious Task field is required</span>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <input type="text" name="useless_skill" placeholder="Useless Skill" ng-model="word.useless_skill" required/>
                             <div ng-if="formLib.$submitted" ng-messages="formLib.useless_skill.$error">
-                                <span ng-message="required">Useless Skill field is required</span>
+                                <span class="error" ng-message="required">Useless Skill field is required</span>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <input type="text" name="adjective" placeholder="Adjective" ng-model="word.adjective" required/>
                             <div ng-if="formLib.$submitted" ng-messages="formLib.adjective.$error">
-                                <span ng-message="required">Adjective field is required</span>
+                                <span class="error" ng-message="required">Adjective field is required</span>
                             </div>
                         </div>
                     </div>
